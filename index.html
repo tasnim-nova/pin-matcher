@@ -12,7 +12,7 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="pin-generator half-width">
-                    <input id="random-num" class="form-control" type="text">
+                    <input id="random-display" class="form-control" type="text">
                     <button class="generate-btn" id="generate-pin">Generate Pin</button>
                 </div>
             </div>
@@ -37,9 +37,9 @@
                               <div class="button" id="three-btn" onclick="displayNum('three-btn')">3</div>
                             </div>
                             <div class="calc-button-row">
-                                <div class="button" id="clear"><</div>
+                                <div class="button" id="clear" onclick="clearButton('clear')"><</div>
                                 <div class="button" id="zero-btn" onclick="displayNum('zero-btn')">0</div>
-                                <div class="button" id="allClear">C</div>
+                                <div class="button" id="allClear" onclick="allClearButton('allClear')">C</div>
                             </div>
                             <div>
                                 <button type="submit" class="submit-btn">Submit</button>
@@ -59,7 +59,7 @@
     //Generating random number in input section by clicking generation pin button  
         var generateButton = document.getElementById("generate-pin").addEventListener('click', function () {
             var fourDigitNum = (Math.floor(Math.random() * 10000) + 10000).toString().substring(1);
-            document.getElementById("random-num").value = fourDigitNum;           
+            document.getElementById("random-display").value = fourDigitNum;           
 
         })
 
@@ -68,6 +68,16 @@
             var valueCatch = document.getElementById(id);
             document.getElementById("number-display").value  += valueCatch.innerText ;
     }
+
+    function allClearButton(id){
+        document.getElementById("number-display").value = "";
+    }
+
+    function clearButton(id){
+        var displayNumber = document.getElementById("number-display").value
+        document.getElementById("number-display").value =   displayNumber.substr(0,  displayNumber.length - 1);
+    }
+
 
 
     
