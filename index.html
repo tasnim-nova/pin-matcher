@@ -58,7 +58,7 @@
     <script> 
     //Generating random number in input section by clicking generation pin button  
         var generateButton = document.getElementById("generate-pin").addEventListener('click', function () {
-            var fourDigitNum = (Math.floor(Math.random() * 10000) + 10000).toString().substring(1);
+            var fourDigitNum = Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000;;
             document.getElementById("random-display").value = fourDigitNum;           
 
         })
@@ -75,7 +75,7 @@
 
     function clearButton(id){
         var displayNumber = document.getElementById("number-display").value
-        document.getElementById("number-display").value =   displayNumber.substr(0,  displayNumber.length - 1);
+        document.getElementById("number-display").value = displayNumber.substr(0,  displayNumber.length - 1);
     }
 
 
