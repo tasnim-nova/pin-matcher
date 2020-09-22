@@ -42,7 +42,7 @@
                                 <div class="button" id="allClear" onclick="allClearButton('allClear')">C</div>
                             </div>
                             <div>
-                                <button type="submit" class="submit-btn">Submit</button>
+                                <button type="submit" class="submit-btn" id="submit">Submit</button>
                                 <p class="action-left">3 try left</p>
                             </div>
                     </div>
@@ -50,8 +50,8 @@
             </div>
         </div>
         <div class="notify-section">
-            <p class="notify">❌ Pin Didn't Match, Please try again</p>
-            <p class="notify">✅ Pin Matched... Secret door is opening for you</p>
+            <p class="notify" id="pin-not-match">❌ Pin Didn't Match, Please try again</p>
+            <p class="notify" id="pin-match">✅ Pin Matched... Secret door is opening for you</p>
         </div>
     </div>
 
@@ -78,8 +78,22 @@
         document.getElementById("number-display").value = displayNumber.substr(0,  displayNumber.length - 1);
     }
 
+//Submit Matching and not matching detector
 
 
+document.getElementById("submit").addEventListener('click', function(){  
+    var randomDisplay = document.getElementById("random-display").value;
+    var randomNum = parseInt(randomDisplay);
+    var inputDisplay = document.getElementById("random-display").value;
+    var inputNum = parseInt(inputDisplay);
+
+    if(inputNum == randomNum){
+         document.getElementById('pin-match').style.display = "block";
+     }
+    else{
+        document.getElementById('pin-not-match').style.display = "block";
+    }  
+})
     
     </script>
 </body>
