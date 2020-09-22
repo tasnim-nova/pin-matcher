@@ -12,8 +12,8 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="pin-generator half-width">
-                    <input class="form-control" type="text">
-                    <button class="generate-btn">Generate Pin</button>
+                    <input id="random-num" class="form-control" type="text">
+                    <button class="generate-btn" id="generate-pin">Generate Pin</button>
                 </div>
             </div>
             <div class="col-md-6">
@@ -54,5 +54,16 @@
             <p class="notify">✅ Pin Matched... Secret door is opening for you</p>
         </div>
     </div>
+
+    <script> 
+    //Generating random number in input section by clicking generation pin button  
+        var generateButton = document.getElementById("generate-pin").addEventListener('click', function () {
+            var fourDigitNum = (Math.floor(Math.random() * 10000) + 10000).toString().substring(1);
+            document.getElementById("random-num").value = fourDigitNum;           
+
+        })
+
+    //Calculator and Display Number
+    </script>
 </body>
 </html>
