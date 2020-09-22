@@ -84,13 +84,14 @@
 document.getElementById("submit").addEventListener('click', function(){  
     var randomDisplay = document.getElementById("random-display").value;
     var randomNum = parseInt(randomDisplay);
-    var inputDisplay = document.getElementById("random-display").value;
+    console.log(randomNum);
+    var inputDisplay = document.getElementById("number-display").value;
     var inputNum = parseInt(inputDisplay);
-
+    console.log(inputNum);
     if(inputNum == randomNum){
          document.getElementById('pin-match').style.display = "block";
      }
-    else{
+    else if(inputNum !== randomNum){
         document.getElementById('pin-not-match').style.display = "block";
     }  
 })
